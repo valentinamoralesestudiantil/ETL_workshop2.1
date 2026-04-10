@@ -36,56 +36,88 @@
 | time_signature | int64 | 0 | 0.00 | ... | Count = 114000<br>Mean = 3.9<br>Std = 0.4<br>Min = 0<br>Max = 5 | ... | ... | It shows the musical compass, in the graph you can see how most focus on a compass of 4 so it does not show much dispersion and has few outliers among them those located in 0 that are an inconsistency within the music |
 | track_genre | object | 0 | 0.00 | 114 | ... | Duplicate expected | ... | Musical genre |
 
-### Grammy Dataset
+### General information of the dataset the_grammy_awards
 
-- Rows: 4810  
-- Columns: 10  
-- Memory: 3.1 MiB  
+- Number of rows: 4810 
+- Number of columns: 10 
+- Total memory used (MiB): 3.1 
 
-### Data Issues Summary
+| column_name  | Data type | Missing values | % of missing values | Cardinality | Basic Statistics                                      | duplicated data | Inconsistencies in writing                                              | Notes |
+|--------------|----------|----------------|----------------------|-------------|------------------------------------------------------|----------------|-------------------------------------------------------------------------|-------|
+| year         | int64    | 0              | 0.00                 | ...         | Count = 4810<br>Mean = 1995<br>Std = 17<br>Min = 1958<br>Max = 2019 | Duplicate expected | ...                                                                     | It represents the year of the Grammy edition to which the registration belongs, the format should be updated to object because it represents a year and not a number |
+| title        | object   | 0              | 0.00                 | 62          | ...                                                  | Duplicate expected | ...                                                                     | Name of the event |
+| published_at | object   | 0              | 0.00                 | 4           | ...                                                  | Duplicate expected | ...                                                                     | Date on which that record or that page was published on the website |
+| updated_at   | object   | 0              | 0.00                 | 10          | ...                                                  | Duplicate expected | ...                                                                     | Date the registration was last updated on the website |
+| category     | object   | 0              | 0.00                 | 638         | ...                                                  | Duplicate expected | Data are found that represent the same category but written differently | Prize category, it must be normalized to avoid inconsistencies in the data |
+| nominee      | object   | 6              | 0.12                 | 4132        | ...                                                  | Duplicate expected | ...                                                                     | Name of the nominated work |
+| artist       | object   | 1840           | 38.25                | 1659        | ...                                                  | Duplicate expected | Data are found that represent the same category but written differently | Main artist associated with the registration, it must be normalized to avoid inconsistencies in the data |
+| workers      | object   | 2190           | 45.53                | 2367        | ...                                                  | Duplicate expected | Data are found that represent the same category but written differently | People involved in the work, it must be normalized to avoid inconsistencies in the data |
+| img          | object   | 1367           | 28.42                | 1464        | ...                                                  | Unexpected duplicates | There is more than one artist associated with the same image, this generates inconsistencies in the records | Link of the image associated with the artist or registration, a single artist must be left linked to that image |
+| winner       | bool     | 0              | 0.00                 | 1           | ...                                                  | Duplicate expected | ...                                                                     | Indicate if he won or not but they all find themselves in that if he won so it is not a necessary box for the analysis |
 
-| Column | Issue | Description |
-|------|------|------------|
-| winner | Irrelevant | All values true |
-| year | Wrong type | Should be object |
-| category | Inconsistency | Same category written differently |
-| artist | Missing | 38% missing |
-| workers | Missing | 45% missing |
-| img | Duplicates | Same image linked to multiple artists |
+## Summary
+
+###To synthesize the findings of the dataset (**spotify_dataset**) it can be said that:
+
+- There is an unnecessary column inside the dataset which is `Unnamed: 0` that can be deleted.
+
+- One of the columns is badly classified which is `mode` which is an int64 when it should be a bool.
+
+- Only 3 rows have missing within the dataset
+
+- There are columns that have non-natural ranges such as `loudness` that presents values of 0 and positive when it should not, and the `time_signature` that presents values of 0 when the minimum should be 1.
+
+- In the evaluated columns which were the type object you can see that only one of the columns has an unexpected duplicate which is `track_id` where it is considered that all the values must be unique because it is the identifier of the song.
+
+- Inconsistencies are found in the writing of some variables where despite being the same it is written in different ways, which are `artists`, `album_name` and `track_name`.
 
 ---
 
-## 2. Data Cleaning (Spotify)
+###To synthesize the findings of the dataset (**the_grammy_awards**) it can be said that:
 
-| Issue | Strategy | Justification |
-|------|--------|--------------|
-| Unnamed: 0 | Drop column | Not relevant |
-| Null artists | Remove rows | Cannot infer |
-| Null album_name | Remove rows | Cannot infer |
-| Null track_name | Remove rows | Cannot infer |
-| Loudness > -1 | Remove rows | Invalid values |
-| time_signature = 0 | Remove rows | Invalid |
-| Duplicate track_id | Reassign IDs | Preserve data |
+- There is an unnecessary column within the dataset which is `winner` that can be deleted.
+
+- One of the columns is misclassified which is `year` which is an int64 when it should be an object.
+
+- 5403 rows have missing within the dataset
+
+- An unexpected duplicate is found in `img` where more than one artist is linked to the same link
+
+- There are inconsistencies in the writing of some variables where despite being the same it is written in different ways which are `category`, `artist`, `workers` and `img`.
+
+## 2. Cleaning Actions with justification and before/after summary (spotify_dataset)
+
+| Issue                          | Cleaning Strategy                                      | Justification                                                                                                                                     | Log Requirement |
+|--------------------------------|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Unnecessary column (Unnamed: 0) | Drop column                                            | Delete columns that are not relevant in the dataset because they do not provide any information                                                 | Count removed  |
+| Null artists                   | Delete rows with artists null                          | Because the name of the artist is not known and it cannot be invented because it alters the results, it is better to eliminate it              | Count removed  |
+| Null album_name                | Delete rows with album_name null                       | Because the name of the album is not known and it cannot be invented because it alters the results, it is better to delete it                  | Count removed  |
+| Null track_name                | Delete rows with track_name null                       | Because the name of the track is not known and it cannot be invented because it alters the results, it is better to eliminate it               | Count removed  |
+| Positive in loudness           | Drop rows with loudness > -1                           | Positives cannot be interpreted in loudness                                                                                                      | Count dropped  |
+| 0 in time_signature            | Drop rows with time_signature < 1                      | Cannot interpret values of 0 in time_signature                                                                                                   | Count dropped  |
+| Duplicate track_id             | Assign track_id again, leaving the first occurrence the same | In order not to lose a significant amount of records, a new track_id is assigned for duplicates; these IDs are synthetic and not original from Spotify | Count reassigned |
 
 ### Summary
 
-| Metric | Before | After |
-|------|-------|------|
-| Rows | 114000 | 112408 |
-| Nulls | 3 | 0 |
+| Aspects                      | Before                                                                 | After                                  |
+|-----------------------------|------------------------------------------------------------------------|----------------------------------------|
+| Row count                   | 114000                                                                 | 112408                                 |
+| Null counts per column      | artists: 1<br>album_name: 1<br>track_name: 1                           | artists: 0<br>album_name: 0<br>track_name: 0 |
+| Number of rows dropped per reason | rows_removed_null: 1<br>rows_removed_invalid_loudness: 456<br>rows_removed_invalid_time_signature: 1135 |                                        |
 
 ---
 
-## 3. Data Cleaning (Grammy)
+## 3. Cleaning Actions with justification and before/after summary (the_grammy_awards)
 
-| Issue | Strategy | Justification |
-|------|--------|--------------|
-| winner | Drop | Not useful |
-| Null nominee | Remove | Cannot infer |
-| Null artist | Remove | Cannot infer |
-| Null workers | Remove | Cannot infer |
-| Null img | Remove | Cannot infer |
-| Duplicate img | Remove | Ensure consistency |
+
+| Issue                         | Cleaning Strategy                                              | Justification                                                                                                                                     | Log Requirement |
+|------------------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Unnecessary column (winner)  | Drop column                                                   | Delete columns that are not relevant in the dataset because they do not provide any information                                                 | Count removed  |
+| Null nominee                | Delete rows with nominee null                                 | Because the name of the nominee is not known and cannot be invented because it alters the results, it is better to eliminate it               | Count removed  |
+| Null artist                 | Delete rows with artists null                                 | Because the name of the artist is not known and it cannot be invented because it alters the results, it is better to eliminate it              | Count removed  |
+| Null workers                | Delete rows with workers null                                 | Because the names of the workers are not known and cannot be invented because it alters the results, it is better to eliminate them           | Count removed  |
+| Null img                    | Delete rows with img null                                     | Because the links of the images are not known and cannot be invented because it alters the results, it is better to eliminate them            | Count removed  |
+| Duplicate img               | Remove duplicates linked to more than one artist              | Since there cannot be more than one artist linked to the same image, duplicates must be removed to ensure consistency                          | Count removed  |
 
 ### Summary
 
