@@ -1,0 +1,28 @@
+{
+    "spotify": {
+        "mode_transformed_to_bool": true,
+        "explicit_standardized": true,
+        "standardized_text_columns": [
+            "artists",
+            "album_name",
+            "track_name",
+            "track_genre"
+        ],
+        "rows_after_artist_explode": 156089
+    },
+    "grammy": {
+        "year_transformed_to_object": true,
+        "standardized_text_columns": [
+            "category",
+            "nominee",
+            "artist",
+            "workers",
+            "img"
+        ]
+    },
+    "merge": {
+        "spotify_rows_after_merge": 156095,
+        "final_enriched_rows": 112408,
+        "matched_rows": 107
+    }
+}

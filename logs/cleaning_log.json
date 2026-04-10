@@ -1,0 +1,120 @@
+{
+    "spotify": {
+        "initial_rows": 114000,
+        "null_counts_before": {
+            "artists": 1,
+            "album_name": 1,
+            "track_name": 1
+        },
+        "blank_counts_before": {
+            "artists": 0,
+            "album_name": 0,
+            "track_name": 0
+        },
+        "dropped_columns": [
+            "Unnamed: 0"
+        ],
+        "removal_details": {
+            "rows_removed_null_artists": 1,
+            "rows_removed_null_album_name": 0,
+            "rows_removed_null_track_name": 0,
+            "rows_removed_blank_artists": 0,
+            "rows_removed_blank_album_name": 0,
+            "rows_removed_blank_track_name": 0,
+            "rows_removed_invalid_loudness": 456,
+            "rows_removed_invalid_time_signature": 1135,
+            "rows_removed_duplicate_track_id": 0,
+            "duplicated_track_id_reassigned": 24026,
+            "missing_track_id_reassigned": 0
+        },
+        "null_counts_after": {
+            "artists": 0,
+            "album_name": 0,
+            "track_name": 0
+        },
+        "blank_counts_after": {
+            "artists": 0,
+            "album_name": 0,
+            "track_name": 0
+        },
+        "final_rows": 112408,
+        "total_rows_removed": 1592
+    },
+    "grammy": {
+        "initial_rows": 4810,
+        "raw_null_counts_before": {
+            "nominee": 0,
+            "artist": 0,
+            "workers": 0,
+            "img": 0
+        },
+        "raw_blank_counts_before": {
+            "nominee": 6,
+            "artist": 1840,
+            "workers": 2190,
+            "img": 1367
+        },
+        "null_counts_before": {
+            "nominee": 6,
+            "artist": 1840,
+            "workers": 2190,
+            "img": 1367
+        },
+        "blank_counts_before": {
+            "nominee": 0,
+            "artist": 0,
+            "workers": 0,
+            "img": 0
+        },
+        "dropped_columns": [
+            "winner"
+        ],
+        "removal_details": {
+            "rows_removed_null_nominee": 6,
+            "rows_removed_null_artist": 1834,
+            "rows_removed_null_workers": 2004,
+            "rows_removed_null_img": 132,
+            "rows_removed_blank_nominee": 0,
+            "rows_removed_blank_artist": 0,
+            "rows_removed_blank_workers": 0,
+            "rows_removed_blank_img": 0,
+            "rows_removed_confirmed_duplicate_img_artist": 7
+        },
+        "confirmed_duplicate_img_artist_details": [
+            {
+                "img": "https://www.grammy.com/sites/com/files/styles/artist_circle/public/muzooka/Donald%2BLawrence/Donald%2520Lawrence_1_1_1594739006.jpg?itok=sLgm8I99",
+                "artist_removed": "The Clark Sisters",
+                "rows_removed": 1
+            },
+            {
+                "img": "https://www.grammy.com/sites/com/files/styles/artist_circle/public/muzooka/Jack%2BWhite/Jack%2520White_1_1_1578384853.jpg?itok=cFBueuG3",
+                "artist_removed": "The White Stripes",
+                "rows_removed": 2
+            },
+            {
+                "img": "https://www.grammy.com/sites/com/files/styles/artist_circle/public/muzooka/Jose%2BLugo/Jose%2520Lugo_1_1_1597180907.jpg?itok=wFL5AI88",
+                "artist_removed": "Jose Lugo & Guasábara Combo",
+                "rows_removed": 1
+            },
+            {
+                "img": "https://www.grammy.com/sites/com/files/styles/artist_circle/public/muzooka/Paul%2BSimon/Paul%2520Simon_1_1_1578385319.jpg?itok=H2xb3gsd",
+                "artist_removed": "Paul Simon",
+                "rows_removed": 3
+            }
+        ],
+        "null_counts_after": {
+            "nominee": 0,
+            "artist": 0,
+            "workers": 0,
+            "img": 0
+        },
+        "blank_counts_after": {
+            "nominee": 0,
+            "artist": 0,
+            "workers": 0,
+            "img": 0
+        },
+        "final_rows": 827,
+        "total_rows_removed": 3983
+    }
+}
