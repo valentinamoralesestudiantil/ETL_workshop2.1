@@ -187,12 +187,14 @@ The Spotify dataset was taken as a basis for containing a greater number of reco
 
 The union was made using the fields (track_name = nominee and artists = artist), which allowed to maintain the integrity of the catalog, avoid irrelevant data and maximize the matches useful for the analysis.
 
+Therefore, it was decided to keep all Spotify records and enrich them only with the relevant information of the Grammy Awards.
+
 
 ---
 
 ## 5. granularity
 
-### Fact Table: 
+### Fact Table: `fact_music_grammy`
 
 | Column |
 |------|
@@ -250,6 +252,13 @@ The union was made using the fields (track_name = nominee and artists = artist),
 
 ---
 
+### Justification of granularity decision
+
+It was decided to make a fact table and three dimensions because in the context of the problem this was more convenient for its use. In the first instance, the attributes of has_grammy_match and popularity were decided for the fact table because these allowed to quickly filter songs related to Grammy and popularity because it allows it to easily answer the kpis and take mathematical measures.
+
+For the dimensions it was decided to leave dim_music that would contain the information related to the songs of spotify, dim_grammy that contains the information related to the grammy award and dim_time that contains the information related to the dates.
+
+---
 ## 6. Star schema design — ERD or table layout with column descriptions
 
 ![Star Schema](diagrama_de_estrella.png)
