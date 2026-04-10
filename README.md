@@ -6,17 +6,18 @@
 
 ## 1. Data Profiling (EDA)
 
-### Spotify Dataset
+### General information of the dataset spotify_dataset
 
-- Rows: 114000  
-- Columns: 21  
-- Memory: 50.6 MiB  
+- Number of rows: 114000  
+- Number of columns: 21  
+- Total memory used (MiB): 50.6 MiB  
 
 ### Data Issues Summary
 
-| Column | Issue | Description |
+| Column_name | Data type | Missing values | % of missing values | Cardinality | Basic Statistics | duplicated data 
+ | Inconsistencies in writing | Notes |Description |
 |------|------|------------|
-| Unnamed: 0 | Irrelevant | Should be removed |
+| Unnamed: 0 | int64 | 0 | 0.00 | ... | Count = 114000, Mean = 56999.5, Std = 32909, Min = 0, Max = 113999 | ... | ... | It is not considered relevant for the analysis, to eliminate |
 | track_id | Duplicates | 24259 duplicates (should be unique) |
 | artists | Inconsistency | Same artist written differently |
 | album_name | Inconsistency | Same album written differently |
