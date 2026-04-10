@@ -139,9 +139,10 @@
 
 4. Auxiliary columns will be created to be able to compare (track_name = nominee and artists = artist) these will be the columns that will allow us to merge between the two datasets, if coincidences are found the row will be filled with the information of the dataset the_grammy_awards
 
-5. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, these were the new columns
+5. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, These will be the new columns (grammy_year, grammy_title, grammy_category, grammy_nominee, grammy_artist, grammy_workers, grammy_img, grammy_published_at, grammy_updated_at).
 
-6. The_grammy_awards data is added if it matches Spotify.
+6. The attached file will be saved in a CSV called "spotify_enriched" because the spotify dataset was taken and the information of the_grammy_awards dataset that coincides with that of spotify (this means that all rows of the spotify dataset are preserved and the_grammy_awards information will be used only where they find matches) and the has_grammy_match column will be added to identify whether or not there is a coincidence between the two sets of data.
+
 
 ---
 
