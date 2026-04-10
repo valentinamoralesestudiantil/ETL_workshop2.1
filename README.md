@@ -97,7 +97,7 @@
 | 0 in time_signature            | Drop rows with time_signature < 1                      | Cannot interpret values of 0 in time_signature                                                                                                   | Count dropped  |
 | Duplicate track_id             | Assign track_id again, leaving the first occurrence the same | In order not to lose a significant amount of records, a new track_id is assigned for duplicates; these IDs are synthetic and not original from Spotify | Count reassigned |
 
-### Summary
+### Before/after summary
 
 | Aspects                      | Before                                                                 | After                                  |
 |-----------------------------|------------------------------------------------------------------------|----------------------------------------|
@@ -119,21 +119,31 @@
 | Null img                    | Delete rows with img null                                     | Because the links of the images are not known and cannot be invented because it alters the results, it is better to eliminate them            | Count removed  |
 | Duplicate img               | Remove duplicates linked to more than one artist              | Since there cannot be more than one artist linked to the same image, duplicates must be removed to ensure consistency                          | Count removed  |
 
-### Summary
+### Before/after summary
 
-| Metric | Before | After |
-|------|-------|------|
-| Rows | 4810 | 3983 |
+| Aspects                         | Before                                                                                                  | After                                                  |
+|---------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| Row count                       | 4810                                                                                                    | 3983                                                   |
+| Null counts per column          | nominee: 6<br>artist: 1840<br>workers: 2190<br>img: 1367                                                 | nominee: 0<br>artist: 0<br>workers: 0<br>img: 0         |
+| Number of rows dropped per reason | rows_removed_null_nominee: 6<br>rows_removed_null_artist: 1834<br>rows_removed_null_workers: 2004<br>rows_removed_null_img: 132<br>rows_removed_confirmed_duplicate_img_artist: 7 |                                                        |
 
 ---
 
-## 4. Transformations
+## 4. Transformation steps applied and rationale (General)
 
-- Convert `mode` → boolean  
-- Convert `year` → object  
-- Normalize text columns (lowercase, trim, remove accents)  
-- Create auxiliary columns for merging  
-- Merge datasets (Spotify + Grammy)  
+1. All data in the "mode" column was transformed to bool because this ensures that only bool type data is handled in the mode column.
+
+2. All the data in the "year" column were transformed into object because this guarantees that they are taking years not numbers for their handling.
+
+3. From the Spotify dataset the columns were standardized (artists, album_name, track_name, track_genre) and from the Grammy dataset the columns were standardized (category, nominee, artist, workers, img); ensuring that each of them has the same format with all the lowercase letters, remove spaces at the beginning and end, remove tildes, reduce double spaces, normalize simple signs.
+
+4. To be able to standardize the form of presentation, to be able to find them and handle them with the same format.
+
+5. Auxiliary columns will be created to be able to compare (track_name = nominee and artists = artist) these will be the columns that will allow us to merge between the two datasets, if coincidences are found the row will be filled with the information of the dataset the_grammy_awards
+
+6. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, these were the new columns
+
+7. The_grammy_awards data is added if it matches Spotify.
 
 ---
 
