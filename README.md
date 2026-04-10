@@ -4,6 +4,40 @@
 
 ---
 
+## General objective
+
+**Analyze the relationship between the songs in the Spotify dataset and the Grammy Awards, by integrating both data sets, to identify recognition patterns, popularity and relevant characteristics of the award-winning songs.
+
+---
+
+## Business objectives:
+
+### BO-1 - Ensure Reliable Integration between Spotify Music Data and Grammy Awards
+
+**Ensure that the integration between Spotify songs and Grammy Awards records is accurate and consistent, using only valid matches and clean data.
+
+### BO-2 — Allowing Accurate Measurement of Recognition in Industry
+
+**Provide a unified and debugged dataset that allows you to correctly identify which songs from the Spotify catalog have been recognized with Grammy awards. This makes it easier to evaluate the prestige and value of the music catalog provided by Spotify.
+
+### BO-3 — Supporting Data-Based Content and Promotion Strategies
+
+**Ensure that key attributes are standardized and consistent, allowing to analyze what characteristics the songs have. This supports marketing decisions, playlist curation and promotion strategies.
+
+### BO-5 — Allow Trend Analysis in Awarded Songs
+
+**Standardize time variables and ensure their consistency to facilitate the analysis of Grammy winning songs over time. This allows to identify trends and changes in musical recognition.
+
+### BO-6 — Strengthening the Consistency in the Representation of Entities
+
+**Normalize key fields such as names of artists, categories and other relevant entities to avoid duplication or ambiguity. This allows accurate aggregate analysis and comparisons.
+
+### BO-7 - Record Keeping
+
+**Seek the conservation of the largest number of clean records to ensure the integrity of the analysis results.
+
+---
+
 ## 1. Data Profiling (EDA)
 
 ### General information of the dataset spotify_dataset
@@ -142,6 +176,16 @@
 5. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, These will be the new columns (grammy_year, grammy_title, grammy_category, grammy_nominee, grammy_artist, grammy_workers, grammy_img, grammy_published_at, grammy_updated_at).
 
 6. The attached file will be saved in a CSV called "spotify_enriched" because the spotify dataset was taken and the information of the_grammy_awards dataset that coincides with that of spotify (this means that all rows of the spotify dataset are preserved and the_grammy_awards information will be used only where they find matches) and the has_grammy_match column will be added to identify whether or not there is a coincidence between the two sets of data.
+
+---
+
+## Justification of the union decision
+
+**The integration of the Spotify and Grammy datasets was made in order to meet the business objectives related to the analysis of the Grammy musical recognition within the Spotify catalog.
+
+The Spotify dataset was taken as a basis for containing a greater number of records and presenting the largest number of coinsidensias after the union. From this, only the information from the Grammy dataset that coincided with the existing songs was incorporated.
+
+The union was made using the fields (track_name = nominee and artists = artist), which allowed to maintain the integrity of the catalog, avoid irrelevant data and maximize the matches useful for the analysis.
 
 
 ---
