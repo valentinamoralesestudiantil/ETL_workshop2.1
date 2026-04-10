@@ -147,7 +147,7 @@
 
 ---
 
-## 5. Star Schema
+## 5. granularity
 
 ### Fact Table: 
 
@@ -207,19 +207,21 @@
 
 ---
 
-## 6. Star Schema Diagram
+## 6. Star schema design — ERD or table layout with column descriptions
 
 ![Star Schema](diagrama_de_estrella.png)
 
 ---
 
-## 7. KPIs
+## 7. Visualizations and KPIs with interpretation 
 
-| KPI | Description |
-|----|------------|
-| Total Spotify songs | Dataset size |
-| Grammy winning songs | Songs with awards |
-| Most popular Grammy songs | High popularity |
-| Explicit content % | Content classification |
-| Grammy songs by genre | Genre distribution |
-| Grammy songs per year | Trend over time |
+| KPI                                                        | Visualization            | KPI Value |
+|-----------------------------------------------------------|--------------------------|----------|
+| Total Spotify songs                                       | Card                     | It allows you to recognize the size of the dataset with which you are working in order to recognize the scope of the data you are working with and easily compare the relationship between the songs in the Spotify catalog with the Grammy winners of that catalog |
+| Total Grammy Winning Spotify Songs                        | Card                     | With this information you can know how many of the songs that Spotify contains in its database have been winners of the Grammy to know if much of its database contains a list of songs valued by the Grammys and recognize that part of its catalog has high value provided by the industry |
+| Grammy winning songs with the highest popularity on Spotify | Horizontal bar chart     | It allows to identify the Grammy winning songs that are also highly popular on Spotify, it also helps to recognize titles with greater potential for promotion, positioning in playlists, marketing campaigns and use of the music catalog |
+| Percentage of Grammy-winning songs with explicit content  | Cake chart               | It allows you to identify what percentage of the Grammy winning songs contain explicit content in their lyrics, with this you can distinguish what quality of lyrics the Grammys are evaluating in addition to helping to segment the audience and define the dissemination restrictions |
+| Total Grammy winning songs by genre                       | Bar chart                | It allows to identify the genre that has most influenced the Grammys that belongs to the Spotify catalog, thus helping to identify the musical genre with the greatest possibility of prestige and dissemination |
+| Grammy winning songs per year                             | Line chart               | It allows you to identify the years in which a Grammy was won within the Spotify song catalog, it helps to identify trends by period |
+
+
