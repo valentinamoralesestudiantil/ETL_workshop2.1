@@ -277,3 +277,95 @@ For the dimensions it was decided to leave dim_music that would contain the info
 | Grammy winning songs per year                             | Line chart               | It allows you to identify the years in which a Grammy was won within the Spotify song catalog, it helps to identify trends by period |
 
 
+## Considerations to take into account
+
+### Libraries to be installed for implementation
+
+1. EDA
+
+- import pandas as pd
+- import numpy as np
+- import matplotlib.pyplot as plt
+- import seaborn as sns
+- from pathlib import Path
+- import warnings
+- import re
+
+2. Cleaning.py
+
+- import pandas as pd
+- import unicodedata
+- import re
+- import random
+- import string
+  
+3. dimensional_model.py
+
+- import pandas as pd
+  
+4. extract.py
+
+- from pathlib import Path
+- import pandas as pd
+- from sqlalchemy import create_engine
+
+5. load.py
+   
+- from pathlib import Path
+- from sqlalchemy import create_engine, text
+- import pandas as pd
+- from google.auth.transport.requests import Request
+- from google.oauth2.credentials import Credentials
+- from google_auth_oauthlib.flow import InstalledAppFlow
+- from googleapiclient.discovery import build
+- from googleapiclient.http import MediaFileUpload
+
+6. main.py
+
+- import json
+- from pathlib import Path
+- from extract import extract_spotify_data, extract_grammy_data
+- from cleaning import clean_input
+- from transform import transform_input
+- from load import subir_csv_a_drive, load_to_dw
+- from dimensional_model import build_dimensional_model
+
+7. transform.py
+
+- import pandas as pd
+- import unicodedata
+- import re
+
+### airflow 
+It is carried out at the level of a docker container, so docker is required
+
+8. dimensional_model.py
+
+- import pandas as pd
+  
+9. Workshop2.py 
+
+- from airflow.decorators import dag, task
+- from datetime import datetime
+- import pandas as pd
+- import json
+- from sqlalchemy import create_engine, text
+- import unicodedata
+- import re
+- from dimensional_model import build_dimensional_model
+- from pathlib import Path
+- from google.auth.transport.requests import Request
+- from google.oauth2.credentials import Credentials
+- from googleapiclient.discovery import build
+- from googleapiclient.http import MediaFileUpload
+
+---
+
+##Important
+
+For the completion of the upload process where it was requested to save the merged data set in Google Drive as a CSV file was made through the API where some credentials and a token were generated these files because they contain secret information that is sensitive it is not allowed to place it on GitHub in a secure way so the decision was made to exclude it from it so the token.json and credentials.json information will be absent but it is clarified that for the use of this loading function it is required to generate your own credentials through the google drive cloud.
+
+
+
+
+
