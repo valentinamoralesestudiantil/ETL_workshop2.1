@@ -149,9 +149,12 @@
 
 ## 5. Star Schema
 
-### Fact Table: `has_grammy_match`
+### Fact Table: 
 
-- popularity  
+| Column |
+|------|
+| has_grammy_match |
+| popularity |
 
 ---
 
