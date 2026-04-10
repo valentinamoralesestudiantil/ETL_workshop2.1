@@ -6,7 +6,7 @@
 
 ## General objective
 
-**Analyze the relationship between the songs in the Spotify dataset and the Grammy Awards, by integrating both data sets, to identify recognition patterns, popularity and relevant characteristics of the award-winning songs.
+Analyze the relationship between the songs in the Spotify dataset and the Grammy Awards, by integrating both data sets, to identify recognition patterns, popularity and relevant characteristics of the award-winning songs.
 
 ---
 
