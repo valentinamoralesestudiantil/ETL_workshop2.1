@@ -137,13 +137,11 @@
 
 3. From the Spotify dataset the columns were standardized (artists, album_name, track_name, track_genre) and from the Grammy dataset the columns were standardized (category, nominee, artist, workers, img); ensuring that each of them has the same format with all the lowercase letters, remove spaces at the beginning and end, remove tildes, reduce double spaces, normalize simple signs.
 
-4. To be able to standardize the form of presentation, to be able to find them and handle them with the same format.
+4. Auxiliary columns will be created to be able to compare (track_name = nominee and artists = artist) these will be the columns that will allow us to merge between the two datasets, if coincidences are found the row will be filled with the information of the dataset the_grammy_awards
 
-5. Auxiliary columns will be created to be able to compare (track_name = nominee and artists = artist) these will be the columns that will allow us to merge between the two datasets, if coincidences are found the row will be filled with the information of the dataset the_grammy_awards
+5. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, these were the new columns
 
-6. The columns of the datases the_grammy_awards will be renamed to avoid later confusion, these were the new columns
-
-7. The_grammy_awards data is added if it matches Spotify.
+6. The_grammy_awards data is added if it matches Spotify.
 
 ---
 
