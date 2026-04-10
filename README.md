@@ -14,18 +14,14 @@
 
 ### Data Issues Summary
 
-| Column_name | Data type | Missing values | % of missing values | Cardinality | Basic Statistics | duplicated data 
- | Inconsistencies in writing | Notes |Description |
-|------|------|------------|
-| Unnamed: 0 | int64 | 0 | 0.00 | ... | Count = 114000, Mean = 56999.5, Std = 32909, Min = 0, Max = 113999 | ... | ... | It is not considered relevant for the analysis, to eliminate |
-| track_id | Duplicates | 24259 duplicates (should be unique) |
-| artists | Inconsistency | Same artist written differently |
-| album_name | Inconsistency | Same album written differently |
-| track_name | Inconsistency | Same track written differently |
-| loudness | Invalid values | Positive values when should be ≤ -1 |
-| time_signature | Invalid values | Contains 0 (invalid) |
-
----
+| column_name | Data type | Missing values | % of missing values | Cardinality | Basic Statistics | duplicated data | Inconsistencies in writing | Notes |
+|------------|----------|---------------|----------------------|-------------|------------------|-----------------|----------------------------|------|
+| Unnamed: 0 | int64 | 0 | 0.00 | ... | Count = 114000<br>Mean = 56999.5<br>Std = 32909<br>Min = 0<br>Max = 113999 | ... | ... | It is not considered relevant for the analysis, to eliminate |
+| track_id | object | 0 | 0.00 | 89741 | ... | Unexpected result: There are 24259 duplicates in the column | ... | It is the identifier of the song, it must be unique, so when it is repeated it shows an inconsistency. |
+| artists | object | 1 | 0.0009 | 31438 | ... | Duplicate expected | Data are found that represent the same artist but written differently | They are the artists of a song |
+| album_name | object | 1 | 0.0009 | 46590 | ... | Duplicate expected | Data are found that represent the same album_name but written differently | It's the name of the album |
+| track_name | object | 1 | 0.0009 | 73609 | ... | Duplicate expected | Data are found that represent the same track_name but written differently | It's the name of the song |
+| popularity | int64 | 0 | 0.00 | ... | Count = 114000<br>Mean = 33<br>Std = 22<br>Min = 0<br>Max = 100 | ... | ... | You can see that the data are approximately centered, which means that most songs have low or medium popularity and only some reach a high level of popularity represented as outliers. |
 
 ### Grammy Dataset
 
