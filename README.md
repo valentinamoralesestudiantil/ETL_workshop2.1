@@ -14,27 +14,27 @@ Analyze the relationship between the songs in the Spotify dataset and the Grammy
 
 ### BO-1 - Ensure Reliable Integration between Spotify Music Data and Grammy Awards
 
-**Ensure that the integration between Spotify songs and Grammy Awards records is accurate and consistent, using only valid matches and clean data.
+Ensure that the integration between Spotify songs and Grammy Awards records is accurate and consistent, using only valid matches and clean data.
 
 ### BO-2 — Allowing Accurate Measurement of Recognition in Industry
 
-**Provide a unified and debugged dataset that allows you to correctly identify which songs from the Spotify catalog have been recognized with Grammy awards. This makes it easier to evaluate the prestige and value of the music catalog provided by Spotify.
+Provide a unified and debugged dataset that allows you to correctly identify which songs from the Spotify catalog have been recognized with Grammy awards. This makes it easier to evaluate the prestige and value of the music catalog provided by Spotify.
 
 ### BO-3 — Supporting Data-Based Content and Promotion Strategies
 
-**Ensure that key attributes are standardized and consistent, allowing to analyze what characteristics the songs have. This supports marketing decisions, playlist curation and promotion strategies.
+Ensure that key attributes are standardized and consistent, allowing to analyze what characteristics the songs have. This supports marketing decisions, playlist curation and promotion strategies.
 
 ### BO-5 — Allow Trend Analysis in Awarded Songs
 
-**Standardize time variables and ensure their consistency to facilitate the analysis of Grammy winning songs over time. This allows to identify trends and changes in musical recognition.
+Standardize time variables and ensure their consistency to facilitate the analysis of Grammy winning songs over time. This allows to identify trends and changes in musical recognition.
 
 ### BO-6 — Strengthening the Consistency in the Representation of Entities
 
-**Normalize key fields such as names of artists, categories and other relevant entities to avoid duplication or ambiguity. This allows accurate aggregate analysis and comparisons.
+Normalize key fields such as names of artists, categories and other relevant entities to avoid duplication or ambiguity. This allows accurate aggregate analysis and comparisons.
 
 ### BO-7 - Record Keeping
 
-**Seek the conservation of the largest number of clean records to ensure the integrity of the analysis results.
+Seek the conservation of the largest number of clean records to ensure the integrity of the analysis results.
 
 ---
 
@@ -181,7 +181,7 @@ Analyze the relationship between the songs in the Spotify dataset and the Grammy
 
 ## Justification of the union decision
 
-**The integration of the Spotify and Grammy datasets was made in order to meet the business objectives related to the analysis of the Grammy musical recognition within the Spotify catalog.
+The integration of the Spotify and Grammy datasets was made in order to meet the business objectives related to the analysis of the Grammy musical recognition within the Spotify catalog.
 
 The Spotify dataset was taken as a basis for containing a greater number of records and presenting the largest number of coinsidensias after the union. From this, only the information from the Grammy dataset that coincided with the existing songs was incorporated.
 
