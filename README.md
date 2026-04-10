@@ -57,7 +57,7 @@
 
 ## Summary
 
-###To synthesize the findings of the dataset (**spotify_dataset**) it can be said that:
+### To synthesize the findings of the dataset (**spotify_dataset**) it can be said that:
 
 - There is an unnecessary column inside the dataset which is `Unnamed: 0` that can be deleted.
 
@@ -73,7 +73,7 @@
 
 ---
 
-###To synthesize the findings of the dataset (**the_grammy_awards**) it can be said that:
+### To synthesize the findings of the dataset (**the_grammy_awards**) it can be said that:
 
 - There is an unnecessary column within the dataset which is `winner` that can be deleted.
 
