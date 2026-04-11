@@ -276,6 +276,10 @@ For the dimensions it was decided to leave dim_music that would contain the info
 | Total Grammy winning songs by genre                       | Bar chart                | It allows to identify the genre that has most influenced the Grammys that belongs to the Spotify catalog, thus helping to identify the musical genre with the greatest possibility of prestige and dissemination |
 | Grammy winning songs per year                             | Line chart               | It allows you to identify the years in which a Grammy was won within the Spotify song catalog, it helps to identify trends by period |
 
+---
+![dashboard](visualization.png)
+
+
 
 ## Considerations to take into account
 
